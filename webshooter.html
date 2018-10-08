@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //new object #PJ
+        var webShooter = { 
+          inventor: "Peter Parker",
+          material: "Stainless Steel",
+          pressurePSI: 300,
+          fluid: "standard webbing",
+          webbing_left: 100,
+          sound: "THWIP!",
+
+          // function definitions
+          shootWeb: function() { 
+  
+            alert("Web-fluid gauge: " + this.webbing_left); //'this' is a functional standin for the object name, since we're still inside it #PJ
+  
+            this.webbing_left = this.webbing_left - 8;
+  
+            alert(this.sound);
+  
+            alert("Web-fluid gauge: " + this.webbing_left);
+          },
+
+  
+          switchFluid: function() {
+  
+            alert("Old web type: " + this.fluid);
+            
+            this.fluid = "magnetic webbing";
+            this.webbing_left = 100;
+  
+            alert("New web type: " + this.fluid);
+  
+          },
+
+  
+          reload: function() {
+  
+            alert("Web-fluid gauge: " + this.webbing_left);
+            alert("Loading new cartridge!");
+  
+            this.webbing_left = 100;
+  
+            alert("Web-fluid gauge: " + this.webbing_left);
+  
+          },
+  
+        }
+        
+  
+        console.log(webShooter.inventor);
+  
+        console.log(webShooter.material);
+  
+        console.log(webShooter.pressurePSI);
+  
+        console.log(webShooter.fluid);
+  
+        console.log(webShooter.sound);
+  
+        // keypress event listener & function call declarations
+        document.onkeyup = function(event) {
+          var letter = String.fromCharCode(event.keyCode).toLowerCase();
+          if (letter == "w") {
+            webShooter.shootWeb();
+          }
+          else if (letter == "s") {
+            webShooter.switchFluid();
+          }
+          else if (letter == "r") {
+            webShooter.reload();
+          }
+        }
+  
+         // #PJ
+
+    </script>
+    
+</body>
+</html>
